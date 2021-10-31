@@ -72,3 +72,15 @@ body {
   height: 300px;
   position: absolute;
 }
+
+.score {
+  position: absolute;
+  top: 70px;
+  left: 220px;
+}
+
+.newGameBtn {
+  position: absolute;
+  top: 100px;
+  left: 210px;
+}

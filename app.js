@@ -2,16 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const bird = document.querySelector(".bird");
   const gameDisplay = document.querySelector(".game-container");
   const ground = document.querySelector(".ground");
+  const gameScore = document.querySelector(".score");
+  const btn = document.querySelector(".newGameBtn");
 
   let birdLeft = 220;
   let birdBottom = 300;
   let gravity = 2;
   let isGameOver = false;
+  let startTime, endTime;
+  let score = 0;
+  gameScore.innerHTML = "Score: " + score;
+
+  btn.onclick = () => window.location.reload();
 
   function startGame() {
     birdBottom -= gravity;
     bird.style.bottom = birdBottom + "px";
     bird.style.left = birdLeft + "px";
+    startTime = performance.now();
   }
   let gameTimerId = setInterval(startGame, 20);
 
@@ -56,7 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (
-        (obstacleLeft > 200 &&
+        (!isGameOver &&
+          obstacleLeft > 200 &&
           obstacleLeft < 280 &&
           (birdBottom < obstacleBottom + 153 ||
             birdBottom > obstacleBottom + gap - 200)) ||
@@ -75,5 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(gameTimerId);
     isGameOver = true;
     document.removeEventListener("keyup", control);
+    endTime = performance.now();
+    score = Math.round((endTime - startTime) * 100);
+    gameScore.innerHTML = "Score: " + score;
   }
 });
