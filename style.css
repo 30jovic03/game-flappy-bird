@@ -42,15 +42,6 @@ body {
   position: absolute;
 }
 
-.ground {
-  background-image: url("src/bottom-background.png");
-  width: 500px;
-  height: 150px;
-  position: absolute;
-  top: 580px;
-  z-index: +1;
-}
-
 .bird {
   background-image: url("src/flappy-bird.png");
   width: 60px;
@@ -73,9 +64,24 @@ body {
   position: absolute;
 }
 
+.ground {
+  background-image: url("src/bottom-background.png");
+  width: 500px;
+  height: 150px;
+  position: absolute;
+  top: 580px;
+  z-index: +1;
+}
+
+.ground p {
+  position: absolute;
+  top: 30px;
+  left: 190px;
+}
+
 .score {
   position: absolute;
-  top: 70px;
+  top: 74px;
   left: 220px;
 }
 
